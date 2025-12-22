@@ -11,8 +11,10 @@ import java.io.Console;
 public class Main {
     static void main() {
         hospital h1 = new hospital(" Poliklinika ", " mangilik el 21 ", 502);
+
         patient p1 = new patient(" Beiba ", 102, 84248265, 68);
         patient p2 = new patient(" Batyr ", 245, 678529, 78);
+
         doctor d1 = new doctor(" Askhat", 407, 665371);
         doctor d2 = new doctor(" Miras ", 503, 165829);
 
@@ -38,7 +40,7 @@ public class Main {
         else if (p1.getpatientWeight() > p2.getpatientWeight()){
             System.out.println("patient " + p1.getpatientName() + " весит больше чем " + p2.getpatientName());
         }
-        else {System.out.println("эти дибилы весят одинакого");}
+        else {System.out.println("весят одинакого");}
 
         System.out.println(p1.getFullinfo());
 
