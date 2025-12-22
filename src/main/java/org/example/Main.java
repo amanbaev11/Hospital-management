@@ -10,13 +10,14 @@ import java.io.Console;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        hospital h1 = new hospital(" Poliklinika ", " mangilik el 21 ", 502);
+        hospital h1 = new hospital(" Poliklinika ", " mangilik el 21 ", 9, 1000);
+        hospital h2 = new hospital("mediker", "Buqar Jyrau 35", 14, 1500);
 
-        patient p1 = new patient(" Beiba ", 102, 84248265, 68);
-        patient p2 = new patient(" Batyr ", 245, 678529, 78);
+        patient p1 = new patient(" Batyr ", 102, 84248265, 68, "Male");
+        patient p2 = new patient(" Nuray ", 245, 678529, 58, "Female");
 
-        doctor d1 = new doctor(" Askhat", 407, 665371);
-        doctor d2 = new doctor(" Miras ", 503, 165829);
+        doctor d1 = new doctor(" Askhat", 407, 24, "Male");
+        doctor d2 = new doctor(" Malika ", 503, 30, "Female");
 
         System.out.println(d1.getDoctorID());
         System.out.println(d2.getDoctorID());
@@ -43,6 +44,44 @@ public class Main {
         else {System.out.println("весят одинакого");}
 
         System.out.println(p1.getFullinfo());
+
+        System.out.println(d1.getDoctorSex());
+
+        h1.setCapacity(2000);
+
+
+        if (h1.getCapacity() > h2.getCapacity()){
+            System.out.println(p2.getpatientName() + " пойдет в " + h1.gethospitalName());
+        }
+        else if (h1.getCapacity() < h2.getCapacity()){
+            System.out.println(p2.getpatientName() + " пойдет в " + h2.gethospitalName());
+        }
+        else {
+            System.out.println("they're equal");
+        }
+
+
+        if (d1.getDoctorAge() < 25){
+            System.out.println(p1.getpatientName() + "пойдет к доктору " + d1.getDoctorName());
+        }
+        else {
+            System.out.println(p1.getpatientName() + " не пойдет к " + d1.getDoctorName());
+        }
+
+        if (d2.getDoctorAge() > 30){
+            System.out.println(p2.getpatientName() + " пойдет к доктору " + d2.getDoctorName());
+        }
+        else if(d2.getDoctorAge() == 30){
+            System.out.println(p2.getpatientName() + " пойдет к доктору " + d2.getDoctorName());
+        }
+        else {
+            System.out.println(p2.getpatientName() + " не пойдет к " + d2.getDoctorName());
+        }
+
+
+
+
+
 
 
 
