@@ -14,7 +14,7 @@ public class hospital {
     private Integer capacity;
 
 
-    public void setHospital_name(String hospitalName){hospital_name = hospitalName;}
+    public void sethospitalName(String hospitalName){this.hospital_name = hospitalName;}
     public void setLocation(String location){this.location = location;}
     public void setid(Integer id){this.id = id;}
     public void setCapacity(Integer Capacity){this.capacity = Capacity;}
@@ -26,6 +26,9 @@ public class hospital {
 
     public String getAllinfo(){
         return "the hospital_name is: " + this.hospital_name + "the hospitalLocation is: " + this.location + "the hospital_id is: " + this.id.toString();
+    }
+    public String toString() {
+        return "Hospital{" + "id=" + id + ", name='" + hospital_name + '\'' + ", capacity=" + capacity + '}';
     }
 
 }

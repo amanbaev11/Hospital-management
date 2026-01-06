@@ -1,33 +1,42 @@
 package org.example.entities;
 
-public class patient {
-    public patient(String patient_name, Integer patient_id, Integer patient_phone, Integer patient_weight, String patient_sex){
-        this.patient_name = patient_name;
+public class patient extends person {
+    public patient(String patient_name, Integer patient_id, Integer patient_phone, Integer patient_weight, String patient_sex, int age){
+        super(patient_name, patient_sex, age);
         this.patient_id = patient_id;
         this.patient_phone = patient_phone;
         this.patient_weight = patient_weight;
-        this.patient_sex = patient_sex;
+
 
     }
-    private String patient_name;
+
     private Integer patient_id;
     private Integer patient_phone;
     private Integer patient_weight;
-    private String patient_sex;
 
-    public void setpatientName(String patientName){this.patient_name = patientName;}
+
+
     public void setpatientID(Integer patientID){this.patient_id = patientID;}
     public void setpatientPhone(Integer patientPhone){this.patient_phone = patientPhone;}
     public void setpatientWeight(Integer patientWeight){this.patient_weight = patientWeight;}
-    public void setpatientSex(String patientSex){this.patient_sex = patientSex;}
 
-    public String getpatientName(){return patient_name;}
+
+
     public Integer getpatientID(){return patient_id;}
     public Integer getpatientPhone(){return patient_phone;}
     public Integer getpatientWeight(){return patient_weight;}
-    public String getpatientSex(){return patient_sex;}
+
+
 
     public String getFullinfo(){
-        return "the patient name is: " + this.patient_name + ". " + "the patient id is: " + this.patient_id.toString() + ". " + "the patient phone is: " + this.patient_phone.toString() + ". " + "the patient weight is: "
- + this.patient_weight.toString();   }
+        return "the patient name is: " + this.name + ". " +
+                "the patient id is: " + this.patient_id + ". " +
+                "the patient phone is: " + this.patient_phone + ". " +
+                "the patient weight is: " + this.patient_weight + ". " +
+                "the patient sex is: " + this.sex + ". " +
+                "the patient age is: " + this.age;
+    }
+    public String toString() {
+        return "Patient{" + "id=" + patient_id + ", name='" + name + '\'' + ", weight=" + patient_weight + ", age=" + age + '}';
+    }
 }
