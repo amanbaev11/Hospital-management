@@ -4,6 +4,7 @@ import org.example.entities.doctor;
 import org.example.entities.hospital;
 import org.example.entities.patient;
 import org.example.entities.person;
+import org.example.entities.nurse;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,12 +20,15 @@ public class Main {
         hospital h1 = new hospital(" Poliklinika ", " mangilik el 21 ", 9, 1000);
         hospital h2 = new hospital("mediker", "Buqar Jyrau 35", 14, 1500);
 
-        patient p1 = new patient(" Batyr ", 102, 84248265, 68, "Male", 19);
-        patient p2 = new patient(" Nuray ", 245, 678529, 58, "Female", 18);
+        patient p1 = new patient(" Batyr ", 102, 84248265, 68, "Male", 19, "is being treated" );
+        patient p2 = new patient(" Nuray ", 245, 678529, 58, "Female", 18, "is being treated");
 
 
-        doctor d1 = new doctor(" Askhat", 407, 24, "Male");
-        doctor d2 = new doctor(" Malika ", 503, 30, "Female");
+        doctor d1 = new doctor(" Askhat", 407, 24, "Male", "treats patients");
+        doctor d2 = new doctor(" Malika ", 503, 30, "Female", "treats patients");
+
+        nurse n1 = new nurse("Biba", 67, 22, "male", "dispenses medication");
+        nurse n2 = new nurse("Zhanel", 81, 19, "female", "dispenses medication");
 
         List<patient> patients = new ArrayList<>();
         patients.add(p1);
@@ -37,6 +41,10 @@ public class Main {
         List<hospital> hospitals = new ArrayList<>();
         hospitals.add(h1);
         hospitals.add(h2);
+
+        List<nurse> nurses = new ArrayList<>();
+        nurses.add(n1);
+        nurses.add(n2);
 
 
 
@@ -107,12 +115,12 @@ public class Main {
         System.out.println("searching");
         patient found = searchPatientById(patients, 245);
         if (found != null) {
-            System.out.println("Нашли пациента: " + found);
+            System.out.println("the patient:  " + found);
         } else {
-            System.out.println("Пациент с таким ID не найден");
+            System.out.println("have not found");
         }
 
-        System.out.println("filtering(patients havier than 70kg)");
+        System.out.println("filtering(patients havier than 75kg)");
         List<patient> heavyPatients = filterPatientsByMinWeight(patients, 75);
         for (patient p : heavyPatients) {
             System.out.println(p);
@@ -135,10 +143,13 @@ public class Main {
         people.add(p2);
         people.add(d1);
         people.add(d2);
+        people.add(n1);
+        people.add(n2);
 
-        for (person person : people) {
-            System.out.println(person);
+        for (person x : people) {
+            System.out.println(x.getName() + " " + x.doAction());
         }
+
 
 
 
@@ -173,4 +184,9 @@ public class Main {
                 pA.getpatientWeight()
         ));
     }
+
+
+
+
+
 }

@@ -1,8 +1,8 @@
 package org.example.entities;
 
 public class patient extends person {
-    public patient(String patient_name, Integer patient_id, Integer patient_phone, Integer patient_weight, String patient_sex, int age){
-        super(patient_name, patient_sex, age);
+    public patient(String patient_name, Integer patient_id, Integer patient_phone, Integer patient_weight, String patient_sex, int age, String do_action){
+        super(patient_name, patient_sex, age, do_action);
         this.patient_id = patient_id;
         this.patient_phone = patient_phone;
         this.patient_weight = patient_weight;
@@ -13,6 +13,7 @@ public class patient extends person {
     private Integer patient_id;
     private Integer patient_phone;
     private Integer patient_weight;
+
 
 
 
@@ -39,4 +40,12 @@ public class patient extends person {
     public String toString() {
         return "Patient{" + "id=" + patient_id + ", name='" + name + '\'' + ", weight=" + patient_weight + ", age=" + age + '}';
     }
+
+    @Override
+    public String doAction() {
+        return "is being treated";
+    }
+
+
+
 }
