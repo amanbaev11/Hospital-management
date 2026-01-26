@@ -1,4 +1,5 @@
 package org.example.entities;
+import java.util.Objects;
 
 public class hospital {
     public hospital(String hospital_name, String location, Integer id, Integer capacity){
@@ -29,6 +30,15 @@ public class hospital {
     }
     public String toString() {
         return "Hospital{" + "id=" + id + ", name='" + hospital_name + '\'' + ", capacity=" + capacity + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        hospital other = (hospital) o;
+        return Objects.equals(id, other.id);
+
     }
 
 }

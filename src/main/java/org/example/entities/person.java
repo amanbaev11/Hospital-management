@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import java.util.Objects;
+
 public class person {
     public String name;
     public String sex;
@@ -30,5 +32,16 @@ public class person {
 
     public String doAction() {
         return do_action; // по умолчанию возвращает поле
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof person person)) return false;
+        return age == person.age && Objects.equals(name, person.name) && Objects.equals(sex, person.sex) && Objects.equals(do_action, person.do_action);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, sex, age, do_action);
     }
 }

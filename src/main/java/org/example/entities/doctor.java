@@ -1,4 +1,5 @@
 package org.example.entities;
+import java.util.Objects;
 
 public class doctor extends person{
     public doctor(String doctor_name, Integer doctor_id, int doctor_age, String doctor_sex, String do_action){
@@ -26,5 +27,14 @@ public class doctor extends person{
     public String doAction() {
         return "treats patients";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        doctor other = (doctor) o;
+        return Objects.equals(doctor_id, other.doctor_id);
+    }
+
 
 }

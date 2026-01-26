@@ -1,5 +1,6 @@
 package org.example.entities;
 
+
 public class nurse extends person {
     public nurse(String nurse_name, int nurse_id, int nurse_age, String nurse_sex, String do_action){
         super(nurse_name, nurse_sex, nurse_age, do_action);

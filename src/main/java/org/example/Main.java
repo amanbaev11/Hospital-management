@@ -7,21 +7,48 @@ import org.example.entities.person;
 import org.example.entities.nurse;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import java.io.Console;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public  static void main(String[] args) {
+    public  static void main(String[] args)
+
+    {
+        try (java.sql.Connection c = Db.getConnection()) {
+            System.out.println("CONNECTED OK ");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            DoctorDao dao = new DoctorDao();
+
+            System.out.println("докторы до: ");
+            dao.printAll();
+
+            dao.delete(999);
+
+            dao.insert(999, "Alina", "Female", 40, "treats patients");
+
+            dao.updateAction(999, "consults patients");
+
+            System.out.println("докторы после insert+update");
+            dao.printAll();
+
+            dao.delete(999);
+
+            System.out.println("докторы после delete");
+            dao.printAll();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         hospital h1 = new hospital(" Poliklinika ", " mangilik el 21 ", 9, 1000);
         hospital h2 = new hospital("mediker", "Buqar Jyrau 35", 14, 1500);
 
         patient p1 = new patient(" Batyr ", 102, 84248265, 68, "Male", 19, "is being treated" );
         patient p2 = new patient(" Nuray ", 245, 678529, 58, "Female", 18, "is being treated");
+        patient p3 = new patient("Danial", 245, 111111, 60, "Female", 20, "is being treated");
 
 
         doctor d1 = new doctor(" Askhat", 407, 24, "Male", "treats patients");
@@ -150,6 +177,12 @@ public class Main {
             System.out.println(x.getName() + " " + x.doAction());
         }
 
+        System.out.println(p2.equals(p3));
+
+        for (person x : people)
+        {
+            System.out.println(x.getName() + " " + x.do_action);
+        }
 
 
 
